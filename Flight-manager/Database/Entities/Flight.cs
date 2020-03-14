@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Database.Entities
 {
+    /// <summary>
+    /// This is class Flight.
+    /// </summary>
     public class Flight
     {
         public int Id { get; set; }

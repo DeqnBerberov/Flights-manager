@@ -8245,11 +8245,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Downloads\\PROJECTSU\\M13_FlightsManager_Project-master\\DatabaseTests\\Tests.csproj",
+      "projectUniqueName": "D:\\GitHubCodes\\Flights-manager\\Flight-manager\\DatabaseTests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "D:\\Downloads\\PROJECTSU\\M13_FlightsManager_Project-master\\DatabaseTests\\Tests.csproj",
+      "projectPath": "D:\\GitHubCodes\\Flights-manager\\Flight-manager\\DatabaseTests\\Tests.csproj",
       "packagesPath": "C:\\Users\\Deqn\\.nuget\\packages\\",
-      "outputPath": "D:\\Downloads\\PROJECTSU\\M13_FlightsManager_Project-master\\DatabaseTests\\obj\\",
+      "outputPath": "D:\\GitHubCodes\\Flights-manager\\Flight-manager\\DatabaseTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8268,8 +8268,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Downloads\\PROJECTSU\\M13_FlightsManager_Project-master\\Database\\Database.csproj": {
-              "projectPath": "D:\\Downloads\\PROJECTSU\\M13_FlightsManager_Project-master\\Database\\Database.csproj"
+            "D:\\GitHubCodes\\Flights-manager\\Flight-manager\\Database\\Database.csproj": {
+              "projectPath": "D:\\GitHubCodes\\Flights-manager\\Flight-manager\\Database\\Database.csproj"
             }
           }
         }
