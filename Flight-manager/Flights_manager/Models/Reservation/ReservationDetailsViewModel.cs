@@ -16,7 +16,7 @@ namespace Flights_manager.Models.Reservation
         /// </summary>
         public string Email { get; set; }
         /// <summary>
-        /// Passenger is a list full of passengers in the database.
+        /// Passengers is a list full of passengers in the database.
         /// </summary>
         public List<SinglePassengerViewModel> Passengers { get; set; }
     }

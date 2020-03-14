@@ -26,6 +26,7 @@ namespace Flights_manager.Controllers
         private readonly Flights_manager_DB _context;
         private const int PageSize = 10;
         private int reservationsCount;
+        private Reservation currreservation;
         /// <summary>
         /// This function is used to connect with the web page.
         /// </summary>
@@ -451,7 +452,9 @@ namespace Flights_manager.Controllers
                 Reservation reservation = new Reservation()
                 {
                     Email = model.Email
+                    
                 };
+                currreservation = reservation;
                 _context.Add(reservation);
                 reservationsCount++;
                 await _context.SaveChangesAsync();
@@ -468,12 +471,13 @@ namespace Flights_manager.Controllers
         void SendEmail(string receiver)
         {
             MailMessage mail = new MailMessage();
-
+            Reservation reservation;
             mail.From = new MailAddress("suflightmanager@gmail.com");
             mail.To.Add(receiver);
-            mail.Subject = "Test Mail";
-            mail.Body = "This is for testing the reservation function";
-
+            mail.Subject = "Reservation email";
+            mail.Body = $"This email has been sent because you booked a reservation\n" +
+                        $"Reservation id:{currreservation.Id}";
+            
             SmtpClient SmtpServer = new SmtpClient();
             SmtpServer.Host = "smtp.gmail.com";
             SmtpServer.Credentials = new System.Net.NetworkCredential("suflightmanager@gmail.com", "Flight_manager");
