@@ -26,7 +26,6 @@ namespace Flights_manager.Controllers
         private readonly Flights_manager_DB _context;
         private const int PageSize = 10;
         private int reservationsCount;
-        private Reservation currreservation;
         /// <summary>
         /// This function is used to connect with the web page.
         /// </summary>
@@ -425,7 +424,7 @@ namespace Flights_manager.Controllers
                     TicketType = model.TicketType,
                     ReservationId = reservationsCount
                 };
-                _context.Add(passenger);
+                _context.Add(passenger);             
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(AddPassenger));
             }
@@ -452,32 +451,32 @@ namespace Flights_manager.Controllers
                 Reservation reservation = new Reservation()
                 {
                     Email = model.Email
-                    
                 };
-                currreservation = reservation;
+                string receivermail = model.Email;
+                SendEmail(receivermail);
                 _context.Add(reservation);
                 reservationsCount++;
                 await _context.SaveChangesAsync();
-                string receiver = model.Email;
-                SendEmail(receiver);
                 return RedirectToAction(nameof(AddPassenger));
-            }         
+            }
             return View(model);
         }
+
         /// <summary>
         /// This function is used to send email to user for a reservation.
         /// </summary>
         /// <param name="receiver"> The receiver is an email of the user that has made a reservation.</param>
-        void SendEmail(string receiver)
+        void SendEmail(string receivermail)
         {
             MailMessage mail = new MailMessage();
-            Reservation reservation;
+            Reservation reservation = new Reservation();
             mail.From = new MailAddress("suflightmanager@gmail.com");
-            mail.To.Add(receiver);
-            mail.Subject = "Reservation email";
-            mail.Body = $"This email has been sent because you booked a reservation\n" +
-                        $"Reservation id:{currreservation.Id}";
-            
+            mail.To.Add(receivermail);
+            mail.Subject = "Confirmed reservation";
+            mail.Body = mail.Body = $"Your flight has been booked! Below are your details:\n" +
+                        $"Reservation ID:{reservation.Id}\n" +
+                        $"Confirmation email:{reservation.Email}\n" +
+                        $""; 
             SmtpClient SmtpServer = new SmtpClient();
             SmtpServer.Host = "smtp.gmail.com";
             SmtpServer.Credentials = new System.Net.NetworkCredential("suflightmanager@gmail.com", "Flight_manager");
