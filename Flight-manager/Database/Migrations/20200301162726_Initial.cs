@@ -3,8 +3,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Database.Migrations
 {
+    /// <summary>
+    /// This is class Initial that inherits class migration.
+    /// </summary>
     public partial class Initial : Migration
     {
+        /// <summary>
+        ///  This function creates the whole database.
+        /// </summary>
+        /// <param name="migrationBuilder"> Builds the migration.</param>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -93,7 +100,10 @@ namespace Database.Migrations
                 table: "Passengers",
                 column: "ReservationId");
         }
-
+        /// <summary>
+        /// This function deletes the whole database.
+        /// </summary>
+        /// <param name="migrationBuilder"> Builds the migration.</param>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

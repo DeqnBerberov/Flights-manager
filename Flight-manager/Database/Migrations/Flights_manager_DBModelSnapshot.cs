@@ -11,6 +11,10 @@ namespace Database.Migrations
     [DbContext(typeof(Flights_manager_DB))]
     partial class Flights_manager_DBModelSnapshot : ModelSnapshot
     {
+        /// <summary>
+        /// This function sets the parameters of each table in the database.
+        /// </summary>
+        /// <param name="modelBuilder"> Builds the model.</param>
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

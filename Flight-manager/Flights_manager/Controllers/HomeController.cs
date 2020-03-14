@@ -17,24 +17,38 @@ using System.Net.Mail;
 
 namespace Flights_manager.Controllers
 {
+    /// <summary>
+    /// This is class HomeController. It controls all functions for the database.
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly Flights_manager_DB _context;
         private const int PageSize = 10;
         private int reservationsCount;
-        private Employee curremployee;
+        /// <summary>
+        /// This function is used to connect with the web page.
+        /// </summary>
+        /// <param name="logger"> Connects web page parameters with C#.</param>
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
             _context = new Flights_manager_DB();
             reservationsCount = _context.Reservations.Count();
         }
-
+        /// <summary>
+        /// This function is used to represent the web page.
+        /// </summary>
+        /// <returns> Returns the view of the current page.</returns>
         public IActionResult Index()
         {
             return View();
         }
+        /// <summary>
+        /// This function creates a list full of all the current available flights.
+        /// </summary>
+        /// <param name="model"> Uses the parameters of a flight.</param>
+        /// <returns> Returns the user to the current web page.</returns>
         [HttpGet]
         public async Task<IActionResult> Index(FlightListViewModel model)
         {
@@ -54,12 +68,19 @@ namespace Flights_manager.Controllers
             model.Flights = items;
             return View(model);
         }
-
+        /// <summary>
+        /// This function is used to represent the login web page.
+        /// </summary>
+        /// <returns>Returns the user to the login page.</returns>
         public IActionResult Login()
         {
             return View();
         }
-
+        /// <summary>
+        /// This function is used for login.
+        /// </summary>
+        /// <param name="model"> Uses the parameters of an employee.</param>
+        /// <returns> Returns the user to a specific web page. Admins-> List of employees. Employees-> List of flights </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(EmployeeLoginViewModel model)
@@ -80,7 +101,11 @@ namespace Flights_manager.Controllers
             }
             return View();
         }
-
+        /// <summary>
+        /// This function is used to register a user.
+        /// </summary>
+        /// <param name="model"> Uses a parameters of an employee.</param>
+        /// <returns> Returns the user to a specific web page.</returns>
         public async Task<IActionResult> Register(EmployeeRegisterViewModel model)
         {
             if(ModelState.IsValid)
@@ -108,6 +133,11 @@ namespace Flights_manager.Controllers
             }
             return View(model);
         }
+        /// <summary>
+        /// This function creates a list full of all the current employees.
+        /// </summary>
+        /// <param name="model"> Uses a parameters of an employee.</param>
+        /// <returns> Returns a web page with a list full all the registered employees.</returns>
         [HttpGet]
         public async Task<IActionResult> ListEmployees(EmployeeListViewModel model)
         {
@@ -132,7 +162,11 @@ namespace Flights_manager.Controllers
 
             return View(model);
         }
-
+        /// <summary>
+        /// This function is used to edit employees.
+        /// </summary>
+        /// <param name="id"> Represents id of the employee we want to edit. It is int? because it can be null.</param>
+        /// <returns> Returns a web page with a list full all the registered employees.</returns>
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -162,7 +196,11 @@ namespace Flights_manager.Controllers
 
             return View(model);
         }
-
+        /// <summary>
+        /// This function saves the changes of an edited employee to the database.
+        /// </summary>
+        /// <param name="model"> Uses parameters of an employee.</param>
+        /// <returns> Returns a web page with a list full all the registered employees.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(EmployeeEditViewModel model)
@@ -205,6 +243,11 @@ namespace Flights_manager.Controllers
 
             return View(model);
         }
+        /// <summary>
+        /// This function is used to delete an employee.
+        /// </summary>
+        /// <param name="id"> Represents id of the employee we want to edit.</param>
+        /// <returns> Returns a web page with a list full all the registered employees.</returns>
         public async Task<IActionResult> Delete(int id)
         {
             Employee employee = await _context.Employees.FindAsync(id);
@@ -212,6 +255,11 @@ namespace Flights_manager.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(ListEmployees));
         }
+        /// <summary>
+        /// This function is used to add a flight.
+        /// </summary>
+        /// <param name="model"> Uses parameters of a flight.</param>
+        /// <returns> Returns the user to a specific web page.</returns>
         public async Task<IActionResult> AddFlight(FlightAddViewModel model)
         {
             if (ModelState.IsValid)
@@ -236,6 +284,11 @@ namespace Flights_manager.Controllers
             }
             return View(model);
         }
+        /// <summary>
+        /// This function creates a list of all the available flights.
+        /// </summary>
+        /// <param name="model"> Uses parameters of a flight.</param>
+        /// <returns> Returns the user to a specific web page.</returns>
         [HttpGet]
         public async Task<IActionResult> ListFlights(FlightListViewModel model)
         {
@@ -255,6 +308,11 @@ namespace Flights_manager.Controllers
             model.Flights = items;
             return View(model);
         }
+        /// <summary>
+        /// This function is used to edit a flight.
+        /// </summary>
+        /// <param name="id"> Represents id of the flight we want to edit. It is int? because it can be null.</param>
+        /// <returns> Returns a web page with a list full of all the available flights.</returns>
         public async Task<IActionResult> EditFlight(int? id)
         {
             if (id == null)
@@ -284,7 +342,11 @@ namespace Flights_manager.Controllers
 
             return View(model);
         }
-
+        /// <summary>
+        /// This function updates the edited flight.
+        /// </summary>
+        /// <param name="model"> Uses parameters of flight.</param>
+        /// <returns> Returns the user to a specific web page.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditFlight(FlightEditViewModel model)
@@ -327,7 +389,11 @@ namespace Flights_manager.Controllers
 
             return View(model);
         }
-
+        /// <summary>
+        /// This function is used to delete flight.
+        /// </summary>
+        /// <param name="id"> Represents id of the flight we want to delete.</param>
+        /// <returns> Returns updates list of all flights.</returns>
         public async Task<IActionResult> DeleteFlight(int id)
         {
             Flight flight = await _context.Flights.FindAsync(id);
@@ -335,6 +401,11 @@ namespace Flights_manager.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(ListFlights));
         }
+        /// <summary>
+        /// This function is used to add a passenger to a flight.
+        /// </summary>
+        /// <param name="model"> Uses parameters of a passenger.</param>
+        /// <returns> Returns updated passnegers of a flight. Also returns user to a specific web page.</returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -359,13 +430,20 @@ namespace Flights_manager.Controllers
             }
             return View(model);
         }
-
+        /// <summary>
+        /// This function is used to add a passenger.
+        /// </summary>
+        /// <returns> Returns a view of the updated passenger.</returns>
         public IActionResult AddPassenger()
         {
             PassengerAddViewModel passenger = new PassengerAddViewModel();
             return View(passenger);
         }
-
+        /// <summary>
+        /// This function is used to make a reservation. 
+        /// </summary>
+        /// <param name="model"> Uses parameters of a reservation.</param>
+        /// <returns></returns>
         public async Task<IActionResult> MakeReservation(ReservationMakeViewModel model)
         {
             if (ModelState.IsValid)
@@ -380,11 +458,13 @@ namespace Flights_manager.Controllers
                 string receiver = model.Email;
                 SendEmail(receiver);
                 return RedirectToAction(nameof(AddPassenger));
-            }
-         
+            }         
             return View(model);
         }
-
+        /// <summary>
+        /// This function is used to send email to user for a reservation.
+        /// </summary>
+        /// <param name="receiver"> The receiver is an email of the user that has made a reservation.</param>
         void SendEmail(string receiver)
         {
             MailMessage mail = new MailMessage();
@@ -402,7 +482,12 @@ namespace Flights_manager.Controllers
 
             SmtpServer.Send(mail);
         }
-            public async Task<IActionResult> ListReservations(ReservationListViewModel model)
+        /// <summary>
+        /// This function is used to display all the available reservations.
+        /// </summary>
+        /// <param name="model"> Uses parameters of a reservation.</param>
+        /// <returns> Returns the user to a specific web page.</returns>
+        public async Task<IActionResult> ListReservations(ReservationListViewModel model)
         {
             List<SingleReservationViewModel> items = await _context.Reservations.Select(r => new SingleReservationViewModel()
             {
@@ -413,6 +498,11 @@ namespace Flights_manager.Controllers
             model.Reservations = items;
             return View(model);
         }
+        /// <summary>
+        /// This function is used to edit passengers ticket type.
+        /// </summary>
+        /// <param name="passengers"> All available passengers.</param>
+        /// <returns> Returns updated list.</returns>
         private static List<SinglePassengerViewModel> PassengerConvertor(List<Passenger> passengers)
         {
             var converted = new List<SinglePassengerViewModel>();
@@ -434,6 +524,11 @@ namespace Flights_manager.Controllers
             }
             return converted;
         }
+        /// <summary>
+        /// This function is used to display details about a reservation.
+        /// </summary>
+        /// <param name="id"> </param>
+        /// <return> Returns the user to a specific web page.</returns>
         public IActionResult ReservationDetails(int? id)
         {
             var model = new ReservationDetailsViewModel();
@@ -458,51 +553,22 @@ namespace Flights_manager.Controllers
             model.Passengers = passengers;
             return View(model);
         }
+        /// <summary>
+        /// This function is used when an  Error occures.
+        /// </summary>
+        /// <returns> Returns a web page with a specific error.</returns>
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
+        /// <summary>
+        /// This function is used to verify that an employee exists in the database.
+        /// </summary>
+        /// <param name="id"> Represents the id of the user we want to verify.</param>
+        /// <returns> Returns if the user exists.</returns>
         private bool EmployeeExists(int id)
         {
             return _context.Employees.Any(e => e.Id == id);
         }
     }
 }
-/*
-        public IActionResult Login(EmployeeLoginViewModel model)
-        {
-            if (_context.Employees.Any(e => e.Username == model.Username))
-            {
-                if (_context.Employees.Any(e => e.Password == model.Password))
-                {
-                    if (_context.Employees.Any(e => e.Username == model.Username && e.Role == "Administrator"))
-                    {
-                        foreach ( Employee employee in _context.Employees)
-                        {
-                            if (model.Username==employee.Username && model.Password==employee.Password)
-                            {
-                                curremployee = employee;
-                                break;
-                            }
-                        }
-                        return RedirectToAction(nameof(ListFlights));
-
-                    }
-                    else if (_context.Employees.Any(e => e.Username == model.Username && e.Role == "Employee"))
-                    {
-                        foreach (Employee employee in _context.Employees)
-                        {
-                            if (model.Username == employee.Username && model.Password == employee.Password)
-                            {
-                                currentEmployee = employee;
-                                break;
-                            }
-                        }
-                        return RedirectToAction(nameof(ListEmployees));
-                    }
-                }
-            }
-            return View();
-        }
-    */
