@@ -473,10 +473,7 @@ namespace Flights_manager.Controllers
             mail.From = new MailAddress("suflightmanager@gmail.com");
             mail.To.Add(receivermail);
             mail.Subject = "Confirmed reservation";
-            mail.Body = mail.Body = $"Your flight has been booked! Below are your details:\n" +
-                        $"Reservation ID:{reservation.Id}\n" +
-                        $"Confirmation email:{reservation.Email}\n" +
-                        $""; 
+            mail.Body = mail.Body = $"Your flight has been successfully booked!"; 
             SmtpClient SmtpServer = new SmtpClient();
             SmtpServer.Host = "smtp.gmail.com";
             SmtpServer.Credentials = new System.Net.NetworkCredential("suflightmanager@gmail.com", "Flight_manager");
