@@ -11,6 +11,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace Flights_manager
 {
+    /// <summary>
+    /// This is class Startup
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -19,14 +22,19 @@ namespace Flights_manager
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This function is used to add services to the container.
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This function is used to run HTTP requests.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

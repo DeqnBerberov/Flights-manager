@@ -3,9 +3,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
+    /// <summary>
+    /// This is class EmployeeDBTests.
+    /// </summary>
     [TestClass]
     public class EmployeeDBTests
     {
+        /// <summary>
+        /// This test checks if an employee with a specific id is correctly registered to the database.
+        /// </summary>
         [TestMethod]
         public void TestEmployeeID()
         {
@@ -17,6 +23,9 @@ namespace Tests
                 employee.Id,
                 "EmployeeID must be int and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific username is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeeUsername()
         {
@@ -28,6 +37,9 @@ namespace Tests
                 employee.Username,
                 "Employees username must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific password is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeePassword()
         {
@@ -39,6 +51,9 @@ namespace Tests
                 employee.Password,
                 "Employees password must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific email is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeeEmail()
         {
@@ -50,6 +65,9 @@ namespace Tests
                 employee.Email,
                 "Employees email must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific first name is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeeFN()
         {
@@ -61,6 +79,9 @@ namespace Tests
                 employee.Firstname,
                 "Employees Firstname must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific last name is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeeLN()
         {
@@ -72,6 +93,9 @@ namespace Tests
                 employee.Lastname,
                 "Employees Lastname must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific USN is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeeUSN()
         {
@@ -83,6 +107,9 @@ namespace Tests
                 employee.USN,
                 "Employees USN must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific address is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeeAddress()
         {
@@ -94,6 +121,9 @@ namespace Tests
                 employee.Address,
                 "Employees Address must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific phone number is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeePN()
         {
@@ -105,6 +135,9 @@ namespace Tests
                 employee.PhoneNumber,
                 "Employees PhoneNumber must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if an employee with a specific role is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestEmployeeRole()
         {

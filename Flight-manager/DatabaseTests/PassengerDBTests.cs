@@ -3,9 +3,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
+    /// <summary>
+    /// This is class PassengerDBTests.
+    /// </summary>
     [TestClass]
     public class PassengerDBTests
     {
+        /// <summary>
+        /// This test checks if a passenger with a specific id is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerID()
         {
@@ -17,6 +23,9 @@ namespace Tests
                 passenger.Id,
                 "PassengerID must be int and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a passenger with a specific first name is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerFN()
         {
@@ -28,6 +37,9 @@ namespace Tests
                 passenger.FirstName,
                 "Passengers FirstName must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a passenger with a specific surname is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerSN()
         {
@@ -39,6 +51,9 @@ namespace Tests
                 passenger.Surname,
                 "Passengers Surname must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a passenger with a specific last name is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerLN()
         {
@@ -50,6 +65,9 @@ namespace Tests
                 passenger.Lastname,
                 "Passengers Lastname must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a passenger with a specific USN is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerUSN()
         {
@@ -61,6 +79,9 @@ namespace Tests
                 passenger.USN,
                 "Passengers USN must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a passenger with a specific phone number is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerPN()
         {
@@ -72,6 +93,9 @@ namespace Tests
                 passenger.PhoneNumber,
                 "Passengers PhoneNumber must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a passenger with a specific nationality is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerNat()
         {
@@ -83,6 +107,9 @@ namespace Tests
                 passenger.Nationality,
                 "Passengers Nationality must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a passenger with a specific ticket type is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerTicketType()
         {
@@ -94,6 +121,9 @@ namespace Tests
                 passenger.TicketType,
                 "Passengers TicketType must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a passenger with a specific reservation id is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestPassengerResID()
         {

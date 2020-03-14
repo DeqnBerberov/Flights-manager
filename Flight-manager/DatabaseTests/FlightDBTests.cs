@@ -4,9 +4,15 @@ using System;
 
 namespace Tests
 {
+    /// <summary>
+    /// This is class FlightDBTests.
+    /// </summary>
     [TestClass]
     public class FlightDBTests
     {
+        /// <summary>
+        /// This test checks if a flight with a specific id is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightID()
         {
@@ -18,6 +24,9 @@ namespace Tests
                 flight.Id,
                 "FlightID must be int and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific take off location is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightTakeOffLoc()
         {
@@ -29,6 +38,9 @@ namespace Tests
                 flight.TakeOffLocation,
                 "Flight TakeOffLocation must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific landing location is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightLandingLoc()
         {
@@ -40,6 +52,9 @@ namespace Tests
                 flight.LandingLocation,
                 "Flight LandingLocation  must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific take off time is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightTakeOff()
         {
@@ -51,6 +66,9 @@ namespace Tests
                 flight.TakeOff,
                 "Flight TakeOff  must be DateTime(Y/M/D) and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific landing time is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightLanding()
         {
@@ -62,6 +80,9 @@ namespace Tests
                 flight.Landing,
                 "Flight Landing must be DateTime(Y/M/D) and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific plane type is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightPlaneType()
         {
@@ -73,6 +94,9 @@ namespace Tests
                 flight.TypePlane,
                 "Flight TypePlane must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific plane id is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightPlaneID()
         {
@@ -84,6 +108,9 @@ namespace Tests
                 flight.PlaneId,
                 "Flight PlaneID must be int and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific pilots name is correctly registered to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightPilotName()
         {
@@ -95,6 +122,10 @@ namespace Tests
                 flight.PilotName,
                 "Flight PilotName must be string and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific number of available passenger seats is correctly registered 
+        /// to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightAvPassSeats()
         {
@@ -106,6 +137,10 @@ namespace Tests
                 flight.AvailablePassengerSeats,
                 "Flight AvailablePassengerSeats must be int and is incorrectly set.");
         }
+        /// <summary>
+        /// This test checks if a flight with a specific number of available business class seats is correctly registered 
+        /// to the database. 
+        /// </summary>
         [TestMethod]
         public void TestFlightAvBusSeats()
         {
